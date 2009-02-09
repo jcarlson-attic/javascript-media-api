@@ -14,11 +14,10 @@ dojo.provide("emul.util.Iterable");
         };
         this.next = function(){
             checkForComodification();
-            if (cursor + 1 > collection._store.length) {
+            if (cursor + 1 > collection.size()) {
                 throw "NoSuchElementException";
             }
-			alert("getting 'next'");
-            var next = collection._store[cursor];
+            var next = collection.toArray()[cursor];
             lastRet = cursor++;
             return next;
         };

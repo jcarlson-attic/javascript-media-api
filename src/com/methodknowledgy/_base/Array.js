@@ -1,4 +1,4 @@
-dojo.provide("emul.util.Array");
+dojo.provide("com.methodknowledgy._base.Array");
 /*
 (function(){
 

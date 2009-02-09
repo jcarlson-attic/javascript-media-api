@@ -1,6 +1,6 @@
 dojo.provide("emul.util.List");
 (function(){
-    var c = dojo.declare("emul.util.List", com.methodknowledgy._base.Collection, {
+    var c = dojo.declare("emul.util.List", emul.util.Collection, {
         get: function(index){},
 		set: function(index){},
 		add: function(index, element){},
