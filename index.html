@@ -5,13 +5,9 @@
         <title>Media Framework</title>
         <script src="lib/dojo-release-1.2.3-src/dojo/dojo.js">
         </script>
-        <script src="src/com/methodknowledgy/media/Playlist.js">
-        </script>
         <script>
             dojo.registerModulePath("com", "../../../src/com");
-            dojo.require("com.methodknowledgy.media");
-        </script>
-        <script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'>
+            dojo.require("com.methodknowledgy.Emulation");
         </script>
     </head>
     <body>
@@ -20,10 +16,12 @@
         </div>
         <div>
             <script>
-                with (com.methodknowledgy.media) {
-                    var v = new Playable("http://video.methodknowledgy.com/video.wmv");
-                    var p = new Playlist(1,2,3);
-                }
+            	with (mkjava.util) {
+					var c = new Collection();
+					c.add("hello");
+					c.add("world");
+					var i = c.iterator();
+				}
             </script>
         </div>
     </body>
