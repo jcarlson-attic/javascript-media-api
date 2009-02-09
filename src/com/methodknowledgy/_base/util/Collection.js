@@ -1,9 +1,9 @@
-dojo.provide("emul.util.Collection");
-dojo.require("emul.util.Iterable");
+dojo.provide("com.methodknowledgy.util.Collection");
+dojo.require("com.methodknowledgy.util.Iterable");
 (function(){
     var $break = {};
     var $present = true;
-    var c = dojo.declare("emul.util.Collection", emul.util.Iterable, {
+    var c = dojo.declare("com.methodknowledgy.util.Collection", com.methodknowledgy.util.Iterable, {
         constructor: function(){
 			this._store = {};
             this._modCount = 0;
@@ -111,7 +111,7 @@ dojo.require("emul.util.Iterable");
             if (o == this) {
                 return true;
             }
-            if (!o instanceof emul.util.Collection) {
+            if (!o instanceof com.methodknowledgy.util.Collection) {
                 return false;
             }
             var i1 = this.iterator(), i2 = o.iterator();

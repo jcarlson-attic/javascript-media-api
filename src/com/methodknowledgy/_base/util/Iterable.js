@@ -1,4 +1,4 @@
-dojo.provide("emul.util.Iterable");
+dojo.provide("com.methodknowledgy.util.Iterable");
 (function(){
     var Iterator = function(collection){
         var cursor = 0;
@@ -39,7 +39,7 @@ dojo.provide("emul.util.Iterable");
             }
         };
     };
-    var c = dojo.declare("emul.util.Iterable", null, {
+    var c = dojo.declare("com.methodknowledgy.util.Iterable", null, {
         iterator: function(){
             return new Iterator(this);
         }

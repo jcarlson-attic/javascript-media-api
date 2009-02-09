@@ -12,7 +12,7 @@ dojo.provide("com.methodknowledgy._base.Array");
         var fn = proxy.methods[i];
         proxy.generated[fn] = new Function(fn, "return this._proxy('" + fn + "', arguments)");
     };
-    var c = dojo.declare("emul.util.Array", null, {
+    var c = dojo.declare("com.methodknowledgy.util.Array", null, {
 		_length: 0,
 		_proxy: proxy,
 		getLength: function() {
