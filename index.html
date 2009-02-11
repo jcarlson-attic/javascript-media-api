@@ -30,33 +30,11 @@
         	</form>
             <script>
             with (com.methodknowledgy.util) {
-                var c = new Collection();
+                var c = new List();
                 c.add("hello");
                 c.add("world");
                 var i = c.iterator();
             }
-            function hashTest(n){
-                if (!n) {
-                    throw "Give me a number of iterations to test!";
-                }
-                var hashes = [];
-                var inc = function(i, n, c){
-                    hashes.push({}.hashCode());
-                };
-                var cb = function(i, n, c){
-                    if (hashes[i - 1] == hashes[i]) {
-                        throw "DUPLICATE HASHES GENERATED!";
-                    }
-                    console.log(hashes[i - 1] + ", length: " + hashes[i - 1].length);
-                };
-                
-                return inc.incremental(0, n, 50, function(){
-                    hashes.sort();
-                    cb.incremental(1, hashes.length + 1, 10, function(){
-                        console.log(n + " unique hash codes");
-                    });
-                });
-            };
             </script>
         </div>
     </body>
