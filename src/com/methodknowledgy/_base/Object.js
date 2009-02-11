@@ -20,6 +20,14 @@ dojo.provide("com.methodknowledgy._base.Object");
                     keys.push(i);
                 }
             return keys;
-        }
+        },
+		values: function() {
+            var values = [];
+            for (var i in this) 
+                if (this.hasOwnProperty(i) && i != hashCodeKey) {
+                    values.push(this[i]);
+                }
+            return values;
+		}
     });
 })();
