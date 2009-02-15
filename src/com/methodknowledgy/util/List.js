@@ -4,13 +4,9 @@ dojo.require("com.methodknowledgy.util.Collection");
     var c = dojo.declare("com.methodknowledgy.util.List", com.methodknowledgy.util.Collection, {
         constructor: function(){
             var _store = [];
-            this._add = function(o){
-                if (o.hashCode() != o.hashCode()) {
-                    o = new o.constructor(o);
-                }
-                _store.push(o);
-                return true;
-            };
+			this._add = function(index, element){
+				_store.splice(index, 0, element);
+			};
             this._clear = function(){
                 _store = [];
             };
@@ -26,7 +22,7 @@ dojo.require("com.methodknowledgy.util.Collection");
                 return false;
             };
             this._set = function(index, element){
-                _store.splice(index, 1, element);
+                _store[index] = element;
                 return element;
             };
             this._size = function(){
@@ -39,24 +35,35 @@ dojo.require("com.methodknowledgy.util.Collection");
                 return _store.concat();
             };
         },
+        add: function(o$index, element){
+			this._modCount++;
+            if (arguments.length > 1 && typeof o$index == "number") {
+                this._add(o$index, element);
+				return;
+            }
+			this._add(this.size(), o$index);
+            return true;
+        },
+		addAll: function(c$index, c) {
+			if (arguments.length > 1 && typeof c$index == "number") {
+				var i = c.iterator();
+				while (i.hasNext()) {
+					this.add(c$index++, i.next());
+				}
+				return true;
+			}
+			return this.inherited(c$index);
+		},
         /*
          * TODO
-         * add: function(o){return true;},
-         * add: function(index, element){return;},
          * addAll: function(c){return true;},
          * addAll: function(index, c){},
          */
-        equals: function(o){
-            return this.inherited(o);
-        },
         get: function(index){
             if (index + 1 > this.size() || index < 0) {
                 throw "ArrayIndexOutOfBoundsException"
             }
             return this._get(index);
-        },
-        hashCode: function(){
-            return this.inherited(0);
         },
         indexOf: function(o){
             var index = -1;

@@ -12,7 +12,7 @@ dojo.require("com.methodknowledgy.util.Iterable");
             try {
                 var _i = this.iterator(), i = 0;
                 while (_i.hasNext()) {
-                    iterator([_i.next(), i]);
+                    iterator(_i.next(), i);
                 }
             } 
             catch (e) {
@@ -37,16 +37,11 @@ dojo.require("com.methodknowledgy.util.Iterable");
 			return;
         },
         contains: function(o){
-            if (typeof this.indexOf == "function") {
-                if (this.indexOf(o) != -1) {
-                    return true;
-                }
-            }
             var found = false;
             this._each(function(value){
-                if (value === o) {
+                if (value == o) {
                     found = true;
-                    throw $break;
+                    throw com.methodknowledgy.util.Collection.$break;
                 }
             });
             return found;
@@ -74,6 +69,7 @@ dojo.require("com.methodknowledgy.util.Iterable");
             }
             return !(i1.hasNext() || i2.hasNext());
         },
+		/*
         hashCode: function(){
             var hashCode = 1, i = this.iterator();
             while (i.hasNext()) {
@@ -82,6 +78,7 @@ dojo.require("com.methodknowledgy.util.Iterable");
             }
             return hashCode;
         },
+        */
         isEmpty: function(){
             return this.size() == 0;
         },
