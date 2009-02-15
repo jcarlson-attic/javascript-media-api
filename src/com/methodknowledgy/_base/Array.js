@@ -28,13 +28,13 @@ dojo.require("com.methodknowledgy.util.List");
             return this.length;
         },
         _subList: function(fromIndex, toIndex){
-			return this.slice(fromIndex, toIndex);
+            return this.slice(fromIndex, toIndex);
         },
         _toArray: function(){
             return this.concat();
         }
     });
-	// Don't inherit hashCode
-	// delete array.hashCode;
+    // Don't inherit hashCode
+    // delete array.hashCode;
     dojo.extend(Array, array);
 })();

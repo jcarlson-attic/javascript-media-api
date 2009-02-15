@@ -1,9 +1,9 @@
 dojo.provide("com.methodknowledgy.util.Set");
 dojo.require("com.methodknowledgy.util.Collection");
 (function(){
-	var offset = 0;
+    var offset = 0;
     function generateHashCode(){
-		return (new Date().getTime()+offset++).toString(16);
+        return (new Date().getTime() + offset++).toString(16);
     };
     var c = dojo.declare("com.methodknowledgy.util.Set", com.methodknowledgy.util.Collection, {
         constructor: function(){
@@ -33,6 +33,9 @@ dojo.require("com.methodknowledgy.util.Collection");
             this._toArray = function(){
                 return _store.values();
             };
+            if (c && typeof c.iterator == "function") {
+                this.addAll(c);
+            }
         }
     });
 })();

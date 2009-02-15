@@ -2,10 +2,10 @@ dojo.provide("com.methodknowledgy.util.Collection");
 dojo.require("com.methodknowledgy.util.Iterable");
 (function(){
     var c = dojo.declare("com.methodknowledgy.util.Collection", com.methodknowledgy.util.Iterable, {
-        constructor: function(){
-			if (this.constructor === com.methodknowledgy.util.Collection) {
-				throw "Collection cannot be instantiated directly!";
-			}
+        constructor: function(c){
+            if (this.constructor === com.methodknowledgy.util.Collection) {
+                throw "Collection cannot be instantiated directly!";
+            }
             this._modCount = 0;
         },
         _each: function(iterator){
@@ -29,12 +29,12 @@ dojo.require("com.methodknowledgy.util.Iterable");
             while (i.hasNext()) {
                 this.add(i.next());
             }
-			return true;
+            return true;
         },
         clear: function(){
             this._modCount++;
             this._clear();
-			return;
+            return;
         },
         contains: function(o){
             var found = false;
@@ -69,21 +69,21 @@ dojo.require("com.methodknowledgy.util.Iterable");
             }
             return !(i1.hasNext() || i2.hasNext());
         },
-		/*
-        hashCode: function(){
-            var hashCode = 1, i = this.iterator();
-            while (i.hasNext()) {
-                var o = i.next();
-                hashCode = 31 * hashCode + (o == null ? 0 : o.hashCode());
-            }
-            return hashCode;
-        },
-        */
+        /*
+         hashCode: function(){
+         var hashCode = 1, i = this.iterator();
+         while (i.hasNext()) {
+         var o = i.next();
+         hashCode = 31 * hashCode + (o == null ? 0 : o.hashCode());
+         }
+         return hashCode;
+         },
+         */
         isEmpty: function(){
             return this.size() == 0;
         },
         size: function(){
-			return this._size();
+            return this._size();
         },
         remove: function(o){
             this._modCount++;
@@ -94,7 +94,7 @@ dojo.require("com.methodknowledgy.util.Iterable");
             while (i.hasNext()) {
                 this.remove(i.next());
             }
-			return true;
+            return true;
         },
         retainAll: function(c){
             var i = this.iterator();
@@ -104,7 +104,7 @@ dojo.require("com.methodknowledgy.util.Iterable");
                     this.remove(o);
                 }
             }
-			return true;
+            return true;
         },
         toArray: function(){
             return this._toArray();

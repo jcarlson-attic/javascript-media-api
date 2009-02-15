@@ -15,40 +15,40 @@ dojo.provide("com.methodknowledgy.util.Map");
         clear: function(){
         },
         containsKey: function(key){
-			return false;
+            return false;
         },
         containsValue: function(value){
-			return false;
+            return false;
         },
         entrySet: function(){
-			return new com.methodknowledgy.util.Set(new Entry());
+            return new com.methodknowledgy.util.Set(new Entry());
         },
         equals: function(o){
-			return false;
+            return false;
         },
         get: function(key){
-			return {};
+            return {};
         },
         isEmpty: function(){
-			return this.size() == 0;
+            return this.size() == 0;
         },
         keySet: function(){
-			return new com.methodknowledgy.util.Set([]);
+            return new com.methodknowledgy.util.Set([]);
         },
         put: function(key, value){
-			return value;
+            return value;
         },
         putAll: function(m){
-			return;
+            return;
         },
         remove: function(key){
-			return {};
+            return {};
         },
         size: function(){
-			return 0;
+            return 0;
         },
         values: function(){
-			return new com.methodknowledgy.util.Set([]);
+            return new com.methodknowledgy.util.Set([]);
         }
     });
 })();
