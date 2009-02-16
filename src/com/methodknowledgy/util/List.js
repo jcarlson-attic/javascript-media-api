@@ -32,7 +32,7 @@ dojo.require("com.methodknowledgy.util.Collection");
             }
             var previous = list.get(--cursor);
             lastRet = cursor;
-			return previous;
+            return previous;
         };
         this.nextIndex = function(){
             return cursor;
@@ -150,26 +150,32 @@ dojo.require("com.methodknowledgy.util.Collection");
         },
         indexOf: function(o){
             var index = -1;
-            this._each(function(value, i){
-                if (value === o) {
+            var itr = this.iterator(), i = 0;
+            while (itr.hasNext()) {
+                var value = itr.next();
+                if (value == o) {
                     index = i;
-                    throw com.methodknowledgy.util.Collection.$break;
+                    break;
                 }
-            });
+                i++;
+            }
             return index;
         },
         lastIndexOf: function(o){
             var index = -1;
-            this._each(function(value, i){
-                if (value === o) {
+            var itr = this.iterator(), i = 0;
+            while (itr.hasNext()) {
+                var value = itr.next();
+                if (value == o) {
                     index = i;
                 }
-            });
+                i++;
+            }
             return index;
         },
-		listIterator: function(index) {
-			return new ListIterator(this, index);
-		},
+        listIterator: function(index){
+            return new ListIterator(this, index);
+        },
         removeAt: function(index){
             var o = this.get(index);
             if (this._removeAt(index)) {

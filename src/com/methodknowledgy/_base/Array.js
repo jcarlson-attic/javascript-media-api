@@ -34,7 +34,5 @@ dojo.require("com.methodknowledgy.util.List");
             return this.concat();
         }
     });
-    // Don't inherit hashCode
-    // delete array.hashCode;
     dojo.extend(Array, array);
 })();

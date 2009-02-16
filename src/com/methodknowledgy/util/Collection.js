@@ -8,18 +8,6 @@ dojo.require("com.methodknowledgy.util.Iterable");
             }
             this._modCount = 0;
         },
-        _each: function(iterator){
-            try {
-                var _i = this.iterator(), i = 0;
-                while (_i.hasNext()) {
-                    iterator(_i.next(), i);
-                }
-            } 
-            catch (e) {
-                if (e != com.methodknowledgy.util.Collection.$break) 
-                    throw e;
-            }
-        },
         add: function(o){
             this._modCount++;
             return this._add(o);
@@ -38,12 +26,14 @@ dojo.require("com.methodknowledgy.util.Iterable");
         },
         contains: function(o){
             var found = false;
-            this._each(function(value){
+            var itr = this.iterator(), i = 0;
+            while (itr.hasNext()) {
+                var value = itr.next();
                 if (value == o) {
                     found = true;
-                    throw com.methodknowledgy.util.Collection.$break;
+                    break;
                 }
-            });
+            }
             return found;
         },
         containsAll: function(c){
@@ -109,8 +99,5 @@ dojo.require("com.methodknowledgy.util.Iterable");
         toArray: function(){
             return this._toArray();
         }
-    });
-    dojo.mixin(c, {
-        $break: {}
     });
 })();

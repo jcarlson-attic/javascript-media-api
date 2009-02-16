@@ -8,15 +8,14 @@ dojo.provide("com.methodknowledgy._base.Object");
 	var hashCodeKey = "_$hashCode";
     */
 	
+    /*
     dojo.extend(Object, {
-        /*
 		hashCode: function(){
             if (!this[hashCodeKey]) {
                 this[hashCodeKey] = generateHashCode();
             }
             return this[hashCodeKey];
         },
-        */
         keys: function(){
             var keys = [];
             for (var i in this) 
@@ -34,4 +33,5 @@ dojo.provide("com.methodknowledgy._base.Object");
             return values;
 		}
     });
+    */
 })();
